@@ -7,14 +7,95 @@
     <title>Employee list</title>
 
     <script src="lib/angular.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet"></href>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
     <link href="css/index.css" rel="stylesheet">
+
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
+
   </head>
 
   <body>    
+    <button data-toggle="modal" data-target="#add_modal" data-backdrop="static">
+      Add new employee
+    </button>
     <div ng-controller='MainCtrl'>
-      <div ng-repeat='elem in data'>{{elem}}</div>
+      <table>
+           
+    <col span="5" class='col'>
+  </colgroup>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Job title </th>
+            <th>Employment Date</th>
+            <th>Rate</th>
+            <th>Action</th>
+          </tr>
+
+        </thead>
+        <tbody>
+        <tr ng-repeat='elem in data'>
+          <td>{{elem.name}}</td>
+          <td>{{elem.job}}</td>
+          <td>{{elem.date}}</td>
+          <td>{{elem.rate}}</td>
+          <td><a>Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+<!-- Modal -->
+
+<div id="add_modal" class="modal fade" role="dialog" ng-init="newUser = {}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div>
+          <label>First Name</label>
+          <input type="text" ng-model='newUser["name"]'>
+        </div>  
+        <div>
+          <label>Last Name</label>
+          <input type="text" ng-model='newUser["lastname"]'>
+        </div>
+        <div>
+          <label>Employment Date</label>
+          <input type="date" ng-model='newUser["date"]'>
+        </div>
+        <div>
+          <label>Rate</label>
+          <input type="digit" ng-model='newUser["rate"]' >
+        </div>
+        <div>
+          <label>Job title</label>
+          <select ng-model='newUser["job"]'>
+            <option>CEO</option>
+            <option>QA</option>
+            <option>Business Analyst</option>
+          </select>
+        </div>
+      </div>     
+
+      <div class="modal-footer">  
+        <button class="btn btn-primary" ng-click="addUser(newUser)">Save</button>
+        <button class="btn btn-default" data-dismiss="modal">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- main ctrl-->
     </div>
   </body>
 </html>

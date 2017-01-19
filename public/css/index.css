@@ -1,0 +1,45 @@
+
+body{
+	padding: 5% 10%;
+}
+table{
+  border-collapse:collapse;
+  width: 100%;
+  min-width: 800px;
+  max-width: 1200px;
+}
+
+thead{
+	background-color: #d6d7db;
+}
+
+tr:nth-child(even){
+	background-color: #f1f2f3;
+}
+.col{
+	border: 2px solid;
+}
+button{
+	margin-bottom: 10px;
+}
+label{
+	width: 30%;
+}
+input{
+	width: 60%;
+}
+
+
+@media (max-width: 799px) {
+	body{
+		padding: 0;
+	}
+	table{
+		overflow-y: scroll;
+	}
+}
+@media(min-width: 1201px) {
+	body{
+		padding:5% 20%;
+	}
+}
